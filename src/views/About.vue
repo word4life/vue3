@@ -13,10 +13,7 @@
                 service to our users. Our team values innovation, excellence, and
                 customer satisfaction.
               </p>
-              <p>
-                If you'd like to learn more, feel free to reach out via our
-                <v-btn text small color="primary" @click="goToContact">Contact Page</v-btn>.
-              </p>
+             
             </v-card-text>
           </v-card>
         </v-col>
@@ -26,11 +23,7 @@
   
   <script>
   export default {
-    methods: {
-      goToContact() {
-        this.$router.push('/about'); // Adjust the route if necessary
-      },
-    },
+   
   };
   </script>
   

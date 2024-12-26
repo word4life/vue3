@@ -7,11 +7,9 @@
       <v-list dense>
         <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
           <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon>{{ item.icon }} </v-icon> &nbsp; {{ item.title }}
           </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
+         
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -40,6 +38,7 @@ export default {
   data: () => ({ drawer: null,
     items:[
       { title: 'Dog Pictures', icon: 'mdi-dog', to: '/' },
+      { title: 'History', icon: 'mdi-history', to: '/history' },
       { title: 'About', icon: 'mdi-account', to: '/about' },
     ]
    }),
