@@ -14,13 +14,13 @@
         <v-data-table v-model:search="search" :filter-keys="['image', 'status']" :items="items">
 
 
-            <template v-slot:item.image="{ item }">
+            <template v-slot:image="{ item }">
                 <v-card class="my-2" elevation="2" rounded>
                     <v-img :src="`${item.image}`" height="64" cover></v-img>
                 </v-card>
             </template>
 
-            <template v-slot:item.status="{ item }">
+            <template v-slot:status="{ item }">
                 <v-card class="my-2" elevation="2" rounded>
                     <v-chip :color="item.status === 'success' ? 'green' : 'red'"
                         :text="item.status === 'success' ? 'Success' : 'Failed'" class="text-uppercase" size="small"
