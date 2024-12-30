@@ -11,10 +11,10 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allow the methods you need
     allowedHeaders: ['Content-Type', 'Authorization'],  // Allow specific headers
   }));
-    
+
 app.use(bodyParser.json());
 app.get('/api', (req, res) => {
-    res.json({ message: 'Hello from Express!' });
+    res.json({ message: 'Hello from Express!', random_number: Math.random() });
 });
 
 app.listen(port, () => {

@@ -7,26 +7,24 @@
     <body>
 
         <div id="app">
+            <v-card class="mx-auto" max-width="344">
+                <v-img v-bind:src="imageUrl" :alt="title"></v-img>
 
-            <v-btn @click="changePicture()">Change Picture</v-btn>
-            <p>
-                <img v-bind:src="imageUrl" :alt="title">
-            </p>
+                <v-card-title>
+                    Dog Picture
+                </v-card-title>
 
-            <v-list>
-                <v-list-item :class="picture.isFav" @click="toggleFav(picture)">
-                    {{ picture.message }}
-                    {{ picture.status }}
-                </v-list-item>
-            </v-list>
-            <!--<p>{{title}} - {{author}} - {{age}}</p>
-        
-        <button @click="increment">Increment Age</button>
-        <button @click="decrement">Decrement Age</button>
-    -->
+                <v-card-subtitle>
+                    This a random dog picture.
+                </v-card-subtitle>
+
+                <v-card-actions>
+                    <v-btn color="orange" elevation="16" @click="changePicture()">Change Picture</v-btn>
+                </v-card-actions>
+            </v-card>
+
 
         </div>
-
 
     </body>
 
@@ -112,21 +110,4 @@ export default {
 </script>
 
 
-<style>
-/* img {
-        border-radius: 50%;
-        width: 200px;
-        height: 200px;
-    }
-
-    li {
-        list-style-type: none;
-        color: red;
-
-    }
-    li.fav {
-        list-style-type: circle;
-        color: green;
-
-    } */
-</style>
+<style></style>
