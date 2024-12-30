@@ -11,6 +11,7 @@ import { createRouter, createWebHistory } from 'vue-router/auto'
 import Home from '../views/Home.vue';
 import History from '../views/History.vue';
 import About from '../views/About.vue';
+import CallAPI from '../views/CallAPI.vue';
 
 
 
@@ -29,6 +30,11 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About,
+  },
+  {
+    path: '/call_api',
+    name: 'Call API',
+    component: CallAPI,
   },
 
 ];
