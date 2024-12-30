@@ -1,45 +1,46 @@
 <template>
-    
-<header>
-    <h1>Random Dog Picture Generator</h1>
-</header>
 
-<body>
+    <header>
+        <h1>Random Dog Picture Generator</h1>
+    </header>
 
-    <div id="app">
-        
-        <v-btn @click="changePicture()">Change Picture</v-btn>
-        <p>
-            <img v-bind:src="imageUrl" :alt="title">
-        </p>
+    <body>
 
-        <v-list>
-            <v-list-item  :class="picture.isFav" @click="toggleFav(picture)">
-                {{picture.message}}
-                {{picture.status}}
-            </v-list-item>
-        </v-list>
-        <!--<p>{{title}} - {{author}} - {{age}}</p>
+        <div id="app">
+
+            <v-btn @click="changePicture()">Change Picture</v-btn>
+            <p>
+                <img v-bind:src="imageUrl" :alt="title">
+            </p>
+
+            <v-list>
+                <v-list-item :class="picture.isFav" @click="toggleFav(picture)">
+                    {{ picture.message }}
+                    {{ picture.status }}
+                </v-list-item>
+            </v-list>
+            <!--<p>{{title}} - {{author}} - {{age}}</p>
         
         <button @click="increment">Increment Age</button>
         <button @click="decrement">Decrement Age</button>
     -->
 
-    </div>
+        </div>
 
-    
-</body>
 
-<footer>
-    <!--<p>Footer</p>-->
-</footer>
+    </body>
+
+    <footer>
+        <!--<p>Footer</p>-->
+    </footer>
 </template>
 
 <script>
 
+import { supabase } from '../lib/supabase';
 
-export default  {
-       data() {
+export default {
+    data() {
         return {
             title: 'Image',
             author: 'Jane Doe',
@@ -60,6 +61,14 @@ export default  {
                 }
                 this.picture = await response.json();
                 this.imageUrl = this.picture.message;
+
+                const { data, error } = await supabase
+                    .from('history')
+                    .insert([
+                        { image: this.picture.message, status: this.picture.status },
+                    ])
+                    .select()
+
                 console.warn('Picture fetched:', this.picture);
 
             } catch (error) {
@@ -104,7 +113,7 @@ export default  {
 
 
 <style>
-    /* img {
+/* img {
         border-radius: 50%;
         width: 200px;
         height: 200px;
@@ -120,5 +129,4 @@ export default  {
         color: green;
 
     } */
-    
 </style>

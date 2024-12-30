@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    
+
     <v-navigation-drawer v-model="drawer">
       <v-list-item title="Dog API" subtitle="Random Dog Pictures"></v-list-item>
       <v-divider></v-divider>
@@ -9,7 +9,7 @@
           <v-list-item-icon>
             <v-icon>{{ item.icon }} </v-icon> &nbsp; {{ item.title }}
           </v-list-item-icon>
-         
+
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -27,20 +27,22 @@
   </v-app>
 </template>
 
-<script setup>
+<script>
 import { ref } from 'vue'
 
-const drawer = ref(null)
-</script>
 
-<script>
+const drawer = ref(null)
+
 export default {
-  data: () => ({ drawer: null,
-    items:[
+  data: () => ({
+    drawer: null,
+    items: [
       { title: 'Dog Pictures', icon: 'mdi-dog', to: '/' },
       { title: 'History', icon: 'mdi-history', to: '/history' },
       { title: 'About', icon: 'mdi-account', to: '/about' },
     ]
-   }),
+  }),
+ 
+
 }
 </script>
