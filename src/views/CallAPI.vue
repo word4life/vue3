@@ -39,7 +39,7 @@ export default {
             try {
                 const api_url = "http://localhost:3001/api";
 
-                const response = await fetch("http://localhost:3001/api");
+                const response = await fetch("https://vue3-nu-three.vercel.app/api");
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
