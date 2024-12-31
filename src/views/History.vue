@@ -52,7 +52,7 @@ export default {
     },
     async mounted() {
         console.warn('Fetching history.');
-        const { data, error } = await supabase.from('history').select('*');
+        const { data, error } = await supabase.from('history').select('*').order('id', { ascending: false });;
 
         if (error) {
             console.error(error);
