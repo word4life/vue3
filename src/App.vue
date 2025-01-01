@@ -40,6 +40,7 @@ export default {
       { title: 'Dog Pictures', icon: 'mdi-dog', to: '/' },
       { title: 'History', icon: 'mdi-history', to: '/history' },
       { title: 'Call API', icon: 'mdi-cloud', to: '/call_api' },
+      { title: 'Provider List', icon: 'mdi-account-group', to: '/provider_list' },
       { title: 'About', icon: 'mdi-account', to: '/about' },
     ]
   }),

@@ -12,7 +12,7 @@ import Home from '../views/Home.vue';
 import History from '../views/History.vue';
 import About from '../views/About.vue';
 import CallAPI from '../views/CallAPI.vue';
-
+import ProviderList from '../views/ProviderList.vue'
 
 
 const routes = [
@@ -36,6 +36,11 @@ const routes = [
     name: 'Call API',
     component: CallAPI,
   },
+  {
+    path: '/provider_list',
+    name: 'Provider List',
+    component: ProviderList,
+  }
 
 ];
 const router = createRouter({
