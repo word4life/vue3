@@ -37,9 +37,9 @@ export default {
         async callAPI() {
             console.warn('Calling API.');
             try {
-                const api_url = "http://localhost:3001/api";
-
-                const response = await fetch("https://vue3-nu-three.vercel.app/api");
+                const api_url = "http://localhost:3001/random-number-api";
+                //const api_url = "https://vue3-nu-three.vercel.app/api"
+                const response = await fetch(api_url);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }

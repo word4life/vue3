@@ -13,6 +13,9 @@ import History from '../views/History.vue';
 import About from '../views/About.vue';
 import CallAPI from '../views/CallAPI.vue';
 import ProviderList from '../views/ProviderList.vue'
+import ProviderSearch from '../views/ProviderSearch.vue'
+import VisitorInfo from '../views/VisitorInfo.vue'
+// import { c } from 'node_modules/unplugin-vue-router/dist/types-DBiN4-4c';
 
 
 const routes = [
@@ -40,8 +43,17 @@ const routes = [
     path: '/provider_list',
     name: 'Provider List',
     component: ProviderList,
+  },
+  {
+    path: '/provider_search',
+    name: 'Provider Search',
+    component: ProviderSearch
+  },
+  {
+    path: '/visitor_info', 
+    name: 'Visitor Info',
+    component: VisitorInfo
   }
-
 ];
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
