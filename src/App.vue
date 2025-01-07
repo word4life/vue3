@@ -2,7 +2,7 @@
   <v-app id="inspire">
 
     <v-navigation-drawer v-model="drawer">
-      <v-list-item title="Dog API" subtitle="Random Dog Pictures"></v-list-item>
+      <v-list-item title="Provider Search" subtitle="YOU'RE ALWAYS IN NETWORK"></v-list-item>
       <v-divider></v-divider>
       <v-list dense>
         <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
@@ -17,7 +17,7 @@
     <v-app-bar>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-title>Dog Pictures</v-app-bar-title>
+      <v-app-bar-title>NetsyMD</v-app-bar-title>
     </v-app-bar>
 
     <v-main>
@@ -37,10 +37,10 @@ export default {
   data: () => ({
     drawer: null,
     items: [
-      { title: 'Dog Pictures', icon: 'mdi-dog', to: '/' },
-      { title: 'History', icon: 'mdi-history', to: '/history' },
-      { title: 'Call API', icon: 'mdi-cloud', to: '/call_api' },
-      { title: 'Provider List', icon: 'mdi-account-group', to: '/provider_list' },
+      // { title: 'Dog Pictures', icon: 'mdi-dog', to: '/' },
+      // { title: 'History', icon: 'mdi-history', to: '/history' },
+      // { title: 'Call API', icon: 'mdi-cloud', to: '/call_api' },
+      // { title: 'Provider List', icon: 'mdi-account-group', to: '/provider_list' },
       { title: 'Provider Search', icon: 'mdi-account-search', to: '/provider_search' },
       { title: 'Visitor Info', icon: 'mdi-account-multiple', to: '/visitor_info' },
       { title: 'About', icon: 'mdi-account', to: '/about' },

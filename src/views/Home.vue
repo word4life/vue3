@@ -102,7 +102,8 @@ export default {
     },
     mounted() {
         console.warn('Component mounted.');
-        this.fetchPicture(); // Call the method when the component is mounted
+        // this.fetchPicture(); // Call the method when the component is mounted
+        this.$router.push({ name: 'Provider Search' });
     },
 
 };

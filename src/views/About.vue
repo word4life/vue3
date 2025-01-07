@@ -9,9 +9,7 @@
             </v-card-title>
             <v-card-text>
               <p>
-                Welcome to our application! We are committed to providing the best
-                service to our users. Our team values innovation, excellence, and
-                customer satisfaction.
+                NetsyMD is building the only multi-payer provider search platform ensuring in-network provider matching and quality-driven recommendations. Our goal is to streamline provider searches and reduce administrative burdens for healthcare providers, saving billions in healthcare dollars.
               </p>
              
             </v-card-text>

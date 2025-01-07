@@ -15,6 +15,9 @@
                 </v-tabs-window-item>
 
                 <v-tabs-window-item value="two">
+                    <v-text-field label="Enter Name" v-model="name"></v-text-field>
+                    <v-text-field label="Enter Date of Birth" v-model="dob"></v-text-field>
+                    <v-btn @click="searchByName()">Search</v-btn>
 
                 </v-tabs-window-item>
             </v-tabs-window>
@@ -55,6 +58,15 @@ export default {
             } else {
                 alert("Invalid plan selected.");
             }
+        },
+        searchByName() {
+            if (!this.name || !this.dob) {
+                alert("Please enter a name and date of birth.");
+                return;
+            }
+
+            // Search by name and date of birth
+            warn("Searching by name and date of birth is not yet implemented.");
         }
     }
 }
