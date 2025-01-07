@@ -33,6 +33,8 @@ export default {
     data: () => ({
         tab: null,
         selectedPlan: null,
+        name: null,
+        dob: null,
         plans: [
             { plan: 'Aetna', plan_link: 'https://www.aetna.com/individuals-families/find-a-doctor.html' },
             { plan: 'Anthem Blue Cross Blue Shield', plan_link: 'https://shop.anthem.com/medicare/standalonetools/find-doctor?brand=ABCBS' },
