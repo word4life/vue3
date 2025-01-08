@@ -6,9 +6,9 @@
       <v-divider></v-divider>
       <v-list dense>
         <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
-          <v-list-item-icon>
+          <!-- <v-list-item-icon> -->
             <v-icon>{{ item.icon }} </v-icon> &nbsp; {{ item.title }}
-          </v-list-item-icon>
+          <!-- </v-list-item-icon> -->
 
         </v-list-item>
       </v-list>

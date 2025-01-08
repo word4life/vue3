@@ -10,7 +10,8 @@
             <v-tabs-window v-model="tab">
                 <v-tabs-window-item value="one">
 
-                    <v-select width="300px" label="Choose Plan" :items="plans.map(plan => plan.plan)" v-model="selectedPlan"></v-select>
+                    <v-select width="300px" label="Choose Plan" :items="plans.map(plan => plan.plan)"
+                        v-model="selectedPlan"></v-select>
                     <v-btn @click="searchByPlan()">Search</v-btn>
                 </v-tabs-window-item>
 
@@ -27,7 +28,10 @@
 </template>
 
 <script>
-import { warn } from 'vue';
+
+import logPageVisit from '@/composables/page_visit';
+import { onMounted, warn } from 'vue';
+import { ref } from 'vue';
 
 export default {
     data: () => ({
@@ -41,7 +45,7 @@ export default {
             { plan: 'Cigna', plan_link: 'https://hcpdirectory.cigna.com/web/public/consumer/directory/search' },
             { plan: 'Humana', plan_link: 'https://www.humana.com/' },
             { plan: 'UnitedHealthcare', plan_link: 'https://www.uhc.com/communityplan/find-a-provider' },
-        ]
+        ], page_visit_data: logPageVisit()
     }
     ),
     methods: {
@@ -70,6 +74,12 @@ export default {
             // Search by name and date of birth
             warn("Searching by name and date of birth is not yet implemented.");
         }
-    }
+    },
+    // mounted() {
+    //     // log page visit
+    //     console.log('ProviderSearch mounted');
+    //     logPageVisit();
+    // }
 }
+
 </script>

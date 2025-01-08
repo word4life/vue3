@@ -20,8 +20,12 @@
   </template>
   
   <script>
+  import logPageVisit from '@/composables/page_visit';
+
   export default {
-   
+    data: () => ({
+      page_visit_data: logPageVisit()
+    }),
   };
   </script>
   
