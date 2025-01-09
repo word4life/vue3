@@ -15,6 +15,7 @@ import CallAPI from '../views/CallAPI.vue';
 import ProviderList from '../views/ProviderList.vue'
 import ProviderSearch from '../views/ProviderSearch.vue'
 import VisitorInfo from '../views/VisitorInfo.vue'
+import UsageDashboard from '../views/UsageDashboard.vue';
 // import { c } from 'node_modules/unplugin-vue-router/dist/types-DBiN4-4c';
 
 
@@ -53,8 +54,14 @@ const routes = [
     path: '/visitor_info', 
     name: 'Visitor Info',
     component: VisitorInfo
+  },
+  {
+    path: '/usage_dashboard',
+    name: 'Usage Dashboard',
+    component: UsageDashboard
   }
 ];
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
