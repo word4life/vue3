@@ -42,6 +42,7 @@ import {
     Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ArcElement
 } from 'chart.js';
 import { supabase } from '@/lib/supabase';
+import logPageVisit from '@/composables/page_visit';
 
 // Register Chart.js components
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ArcElement);
@@ -72,7 +73,8 @@ export default {
                         data: []
                     }
                 ]
-            }
+            },
+            page_visit_data: logPageVisit()
         };
     },
     mounted() {

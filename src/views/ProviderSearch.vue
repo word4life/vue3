@@ -30,10 +30,9 @@
 <script>
 
 import logPageVisit from '@/composables/page_visit';
-import { onMounted, warn } from 'vue';
-import { ref } from 'vue';
 
 export default {
+
     data: () => ({
         tab: null,
         selectedPlan: null,
@@ -64,15 +63,16 @@ export default {
             } else {
                 alert("Invalid plan selected.");
             }
+
+            //logPageSubmit(this.selectedPlan, null, null);
+            
         },
         searchByName() {
             if (!this.name || !this.dob) {
                 alert("Please enter a name and date of birth.");
                 return;
             }
-
-            // Search by name and date of birth
-            warn("Searching by name and date of birth is not yet implemented.");
+            //logPageSubmit(null, this.name, this.dob);
         }
     },
     // mounted() {

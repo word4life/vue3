@@ -72,7 +72,7 @@ export default function logPageVisit() {
                         user_agent: user_agent.value,
                     },
                 ]);
-                return data;
+            return data;
 
             if (error) throw error;
 
@@ -85,14 +85,15 @@ export default function logPageVisit() {
     // Initialize on mount
     onMounted(() => {
         console.log('Page visit initialized');
+        
+        // Get IP and device info
+        getIPInfo();
+        getDeviceInfo();
+        
         // Get geolocation
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(setLocation, logError);
         }
-
-        // Get IP and device info
-        getIPInfo();
-        getDeviceInfo();
         console.log('Page visit completed');
     });
 
