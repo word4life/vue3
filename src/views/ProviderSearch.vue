@@ -16,8 +16,9 @@
                 </v-tabs-window-item>
 
                 <v-tabs-window-item value="two">
-                    <v-text-field label="Enter Name" v-model="name"></v-text-field>
-                    <v-text-field label="Enter Date of Birth" v-model="dob"></v-text-field>
+                    <v-text-field width=600px label="Enter Name" v-model="name"></v-text-field>
+                    <v-date-input width=600px label="Enter Date of Birth" v-model="dob"></v-date-input> 
+
                     <v-btn @click="searchByName()">Search</v-btn>
 
                 </v-tabs-window-item>
@@ -41,6 +42,7 @@ export default {
         plans: [
             { plan: 'Aetna', plan_link: 'https://www.aetna.com/individuals-families/find-a-doctor.html' },
             { plan: 'Anthem Blue Cross Blue Shield', plan_link: 'https://shop.anthem.com/medicare/standalonetools/find-doctor?brand=ABCBS' },
+            { plan: 'Blue Shield of California', plan_link: 'https://www.blueshieldca.com/find-a-doctor' },
             { plan: 'Cigna', plan_link: 'https://hcpdirectory.cigna.com/web/public/consumer/directory/search' },
             { plan: 'Humana', plan_link: 'https://www.humana.com/' },
             { plan: 'UnitedHealthcare', plan_link: 'https://www.uhc.com/communityplan/find-a-provider' },
@@ -65,7 +67,7 @@ export default {
             }
 
             //logPageSubmit(this.selectedPlan, null, null);
-            
+
         },
         searchByName() {
             if (!this.name || !this.dob) {
