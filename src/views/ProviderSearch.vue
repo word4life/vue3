@@ -75,10 +75,10 @@ export default {
                 return;
             }
             else {
-                window.open('https://www.blueshieldca.com/find-a-doctor', "_blank");
+                window.open('https://www.blueshieldca.com/find-a-doctor', "_blank", "noopener,noreferrer");
             }
         }
-    },
+    }
     // mounted() {
     //     // log page visit
     //     console.log('ProviderSearch mounted');
