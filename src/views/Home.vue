@@ -1,114 +1,87 @@
 <template>
+    <h1>Provider Search</h1>
+    <v-card>
+        <v-tabs v-model="tab" bg-color="primary">
+            <v-tab value="one">Search by Plan</v-tab>
+            <v-tab value="two">Search by Name</v-tab>
+        </v-tabs>
 
-    <header>
-        <h1>Random Dog Picture Generator</h1>
-    </header>
+        <v-card-text>
+            <v-tabs-window v-model="tab">
+                <v-tabs-window-item value="one">
 
-    <body>
+                    <v-select width="300px" label="Choose Plan" :items="plans.map(plan => plan.plan)"
+                        v-model="selectedPlan"></v-select>
+                    <v-btn @click="searchByPlan()">Search</v-btn>
+                </v-tabs-window-item>
 
-        <div id="app">
-            <v-card class="mx-auto" max-width="344">
-                <v-img v-bind:src="imageUrl" :alt="title"></v-img>
+                <v-tabs-window-item value="two">
+                    <v-text-field width=600px label="Enter Name" v-model="name"></v-text-field>
+                    <v-date-input width=600px label="Enter Date of Birth" v-model="dob"></v-date-input> 
 
-                <v-card-title>
-                    Dog Picture
-                </v-card-title>
+                    <v-btn @click="searchByName()">Search</v-btn>
 
-                <v-card-subtitle>
-                    This a random dog picture.
-                </v-card-subtitle>
+                </v-tabs-window-item>
+            </v-tabs-window>
+        </v-card-text>
+    </v-card>
 
-                <v-card-actions>
-                    <v-btn color="orange" elevation="16" @click="changePicture()">Change Picture</v-btn>
-                </v-card-actions>
-            </v-card>
-
-
-        </div>
-
-    </body>
-
-    <footer>
-        <!--<p>Footer</p>-->
-    </footer>
 </template>
 
 <script>
 
-import { supabase } from '../lib/supabase';
+import logPageVisit from '@/composables/page_visit';
 
 export default {
-    data() {
-        return {
-            title: 'Image',
-            author: 'Jane Doe',
-            age: 25,
-            picture: {},
-            imageUrl: '',
-            isFav: 'fav',
-            param: null
-        }
-    },
+
+    data: () => ({
+        tab: null,
+        selectedPlan: null,
+        name: null,
+        dob: null,
+        plans: [
+            { plan: 'Aetna', plan_link: 'https://www.aetna.com/individuals-families/find-a-doctor.html' },
+            { plan: 'Anthem Blue Cross Blue Shield', plan_link: 'https://shop.anthem.com/medicare/standalonetools/find-doctor?brand=ABCBS' },
+            { plan: 'Blue Shield of California', plan_link: 'https://www.blueshieldca.com/find-a-doctor' },
+            { plan: 'Cigna', plan_link: 'https://hcpdirectory.cigna.com/web/public/consumer/directory/search' },
+            { plan: 'Humana', plan_link: 'https://www.humana.com/' },
+            { plan: 'UnitedHealthcare', plan_link: 'https://www.uhc.com/communityplan/find-a-provider' },
+        ], page_visit_data: logPageVisit()
+    }
+    ),
     methods: {
-        async fetchPicture() {
-            console.warn('Fetching picture.');
-            try {
-                const response = await fetch('https://dog.ceo/api/breeds/image/random');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                this.picture = await response.json();
-                this.imageUrl = this.picture.message;
-
-                const { data, error } = await supabase
-                    .from('history')
-                    .insert([
-                        { image: this.picture.message, status: this.picture.status },
-                    ])
-                    .select()
-
-                console.warn('Picture fetched:', this.picture);
-
-            } catch (error) {
-                console.error('Error fetching picture:', error);
+        searchByPlan() {
+            if (!this.selectedPlan) {
+                alert("Please select a plan.");
+                return;
             }
-        },
-        increment() {
-            this.age++
-            console.warn('increment.');
-        },
-        decrement() {
-            this.age--
-            console.warn('decrement.');
-        },
-        changePicture() {
-            console.warn('Change title.');
-            this.fetchPicture(); // Call the method when the title is changed
-            this.title = this.imageUrl;
-        },
-        imageURL() {
-            console.warn('return image url.');
-            return this.imageUrl
-        },
-        toggleFav(pic) {
-            if (pic.isFav === 'fav') {
-                pic.isFav = 'notFav';
+
+            // Find the selected plan object
+            const selected = this.plans.find(plan => plan.plan === this.selectedPlan);
+
+            if (selected) {
+                const param = selected.plan_link; // Populate param with the plan_link
+                window.open(selected.plan_link, "_blank"); // Navigate to the plan's link
+            } else {
+                alert("Invalid plan selected.");
             }
-            else {
-                pic.isFav = 'fav';
+
+            //logPageSubmit(this.selectedPlan, null, null);
+
+        },
+        searchByName() {
+            if (!this.name || !this.dob) {
+                alert("Please enter a name and date of birth.");
+                return;
             }
-            console.warn(pic.isFav);
+            //logPageSubmit(null, this.name, this.dob);
         }
     },
-    mounted() {
-        console.warn('Component mounted.');
-        // this.fetchPicture(); // Call the method when the component is mounted
-        this.$router.push({ name: 'Provider Search' });
-    },
-
-};
+    // mounted() {
+    //     // log page visit
+    //     console.log('ProviderSearch mounted');
+    //     logPageVisit();
+    // }
+}
 
 </script>
-
-
-<style></style>
