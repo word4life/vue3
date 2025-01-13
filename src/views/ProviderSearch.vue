@@ -17,7 +17,7 @@
 
                 <v-tabs-window-item value="two">
                     <v-text-field width=600px label="Enter Name" v-model="name"></v-text-field>
-                    <v-date-input width=600px label="Enter Date of Birth" v-model="dob"></v-date-input> 
+                    <v-date-input width=600px label="Enter Date of Birth" v-model="dob"></v-date-input>
 
                     <v-btn @click="searchByName()">Search</v-btn>
 
@@ -74,7 +74,9 @@ export default {
                 alert("Please enter a name and date of birth.");
                 return;
             }
-            //logPageSubmit(null, this.name, this.dob);
+            else {
+                window.open('https://www.blueshieldca.com/find-a-doctor', "_blank");
+            }
         }
     },
     // mounted() {
