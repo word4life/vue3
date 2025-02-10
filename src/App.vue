@@ -40,7 +40,7 @@ export default {
       // { title: 'Dog Pictures', icon: 'mdi-dog', to: '/' },
       // { title: 'History', icon: 'mdi-history', to: '/history' },
       // { title: 'Call API', icon: 'mdi-cloud', to: '/call_api' },
-      // { title: 'Provider List', icon: 'mdi-account-group', to: '/provider_list' },
+      { title: 'Provider List', icon: 'mdi-account-group', to: '/provider_list' },
       { title: 'Provider Search', icon: 'mdi-account-search', to: '/provider_search' },
       // { title: 'Visitor Info', icon: 'mdi-account-multiple', to: '/visitor_info' },
       // { title: 'Usage Dashboard', icon: 'mdi-chart-bar', to: '/usage_dashboard' },

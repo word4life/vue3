@@ -1,0 +1,1 @@
+node ./api/index.js & npm run dev &
